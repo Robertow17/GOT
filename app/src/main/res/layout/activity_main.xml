@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fbfbff"
+    tools:context="com.example.student238033.got.Main">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/START"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#e6f7ff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="274dp"
+            android:layout_height="68dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="70dp"
+            android:fontFamily="@font/roboto_mono"
+            android:text="Wypróbuj opcje:"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="216dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/mybutton"
+            android:padding="10dp"
+            android:text="Zaplanuj trasę"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textColor="#007AFF"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="216dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/mybutton"
+            android:padding="10dp"
+            android:text="Zarządzaj trasami punktowanymi"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textColor="#007AFF"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button1" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="216dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/mybutton"
+            android:padding="10dp"
+            android:text="Zarządzaj powiadomieniami"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textColor="#007AFF"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button2" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="216dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/mybutton"
+            android:padding="10dp"
+            android:text="Przeglądaj odznaki"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textColor="#007AFF"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>
