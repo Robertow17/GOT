@@ -26,7 +26,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="70dp"
             android:fontFamily="@font/roboto_mono"
-            android:text="Wypróbuj opcje:"
+            android:text="@string/wyprobuj_opcje"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -35,7 +35,7 @@
 
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/przyciskZaplanujTrase"
             android:layout_width="216dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -43,7 +43,7 @@
             android:layout_marginTop="50dp"
             android:background="@drawable/mybutton"
             android:padding="10dp"
-            android:text="Zaplanuj trasę"
+            android:text="@string/zaplanuj_trase"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textColor="#007AFF"
             android:textSize="18sp"
@@ -52,7 +52,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/przyciskZarzadzajTrasamiPunktowanymi"
             android:layout_width="216dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -60,16 +60,16 @@
             android:layout_marginTop="25dp"
             android:background="@drawable/mybutton"
             android:padding="10dp"
-            android:text="Zarządzaj trasami punktowanymi"
+            android:text="@string/zarz_dzaj_trasami_punktowanymi_PU"
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textColor="#007AFF"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button1" />
+            app:layout_constraintTop_toBottomOf="@+id/przyciskZaplanujTrase" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/PrzyciskZarzadzajPowiadomieniami"
             android:layout_width="216dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -83,10 +83,10 @@
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button2" />
+            app:layout_constraintTop_toBottomOf="@+id/przyciskZarzadzajTrasamiPunktowanymi" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/PrzyciskPrzegladajOdznaki"
             android:layout_width="216dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -100,7 +100,7 @@
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button3" />
+            app:layout_constraintTop_toBottomOf="@+id/PrzyciskZarzadzajPowiadomieniami" />
 
 
     </android.support.constraint.ConstraintLayout>

@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e6f7ff"
+    tools:context="com.example.student238033.got.ModyfikujTrase">
+
+<TextView
+    android:id="@+id/tytul"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="40dp"
+    android:text="Modyfikowanie trasy"
+    android:textAlignment="center"
+    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+    android:textSize="30sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+<TextView
+    android:id="@+id/miejscePoczatkoweTekst"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="20dp"
+    android:text="Miejsce początkowe:"
+    android:textAlignment="center"
+    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/tytul" />
+
+<EditText
+    android:id="@+id/miejscePoczatkowe"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="4dp"
+    android:ems="10"
+    android:inputType="textPersonName"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/miejscePoczatkoweTekst" />
+
+<TextView
+    android:id="@+id/miejsceKoncoweTekst"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="8dp"
+    android:text="Miejsce końcowe:"
+    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/miejscePoczatkowe" />
+
+<EditText
+    android:id="@+id/miejsceKoncowe"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="4dp"
+    android:ems="10"
+    android:inputType="textPersonName"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/miejsceKoncoweTekst" />
+
+<Button
+    android:id="@+id/przyciskZaplanujTrase"
+    android:layout_width="175dp"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:background="@drawable/mybutton"
+    android:padding="10dp"
+    android:text="Modyfikuj"
+    android:textAppearance="@style/TextAppearance.AppCompat"
+    android:textColor="#007AFF"
+    android:textSize="18sp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent" />
+
+<Button
+    android:id="@+id/przyciskZarzadzajTrasamiPunktowanymi"
+    android:layout_width="175dp"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginTop="8dp"
+    android:background="@drawable/mybutton"
+    android:padding="10dp"
+    android:text="Anuluj"
+    android:textAppearance="@style/TextAppearance.AppCompat"
+    android:textColor="#007AFF"
+    android:textSize="18sp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
+
+<TextView
+    android:id="@+id/grupaGorskaTekst"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="8dp"
+    android:text="Grupa Górska:"
+    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/miejsceKoncowe" />
+
+<Spinner
+    android:id="@+id/grupaGorska"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:background="@android:color/background_light"
+    android:spinnerMode="dropdown"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/grupaGorskaTekst" />
+
+<TextView
+    android:id="@+id/podgrupaGorskaTekst"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="8dp"
+    android:text="Podgrupa górska:"
+    android:textAlignment="center"
+    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/grupaGorska" />
+
+<Spinner
+    android:id="@+id/podgrupaGorska"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:background="@android:color/background_light"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/podgrupaGorskaTekst"
+    android:spinnerMode="dropdown"/>
+
+    <TextView
+        android:id="@+id/punktyWejscieTekst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Punkty za wejście:"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/podgrupaGorska" />
+
+<EditText
+    android:id="@+id/pktZaWej"
+    android:layout_width="191dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_marginTop="2dp"
+    android:ems="10"
+    android:inputType="number"
+    android:textSize="18sp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@+id/punktyWejscieTekst"
+    app:layout_constraintTop_toBottomOf="@+id/podgrupaGorska" />
+
+<TextView
+    android:id="@+id/dlaNiepelnosprawnychTekst"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="8dp"
+    android:text="Czy dla niepełnosprawnych:"
+    android:textAlignment="center"
+    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/stopienTrudnosci" />
+
+<CheckBox
+    android:id="@+id/checkBox"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="12dp"
+    android:layout_marginTop="8dp"
+    app:layout_constraintStart_toEndOf="@+id/dlaNiepelnosprawnychTekst"
+    app:layout_constraintTop_toBottomOf="@+id/stopienTrudnosci" />
+
+    <TextView
+        android:id="@+id/stopienTrudnosciTekst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Stopień trudności:"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pktZaZej" />
+
+    <Spinner
+        android:id="@+id/stopienTrudnosci"
+        android:layout_width="191dp"
+        android:layout_height="27dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/background_light"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/stopienTrudnosciTekst"
+        app:layout_constraintTop_toBottomOf="@+id/pktZaZej" />
+
+    <TextView
+        android:id="@+id/pktZaZejscie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:text="Punkty za zejście:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pktZaWej" />
+
+    <EditText
+        android:id="@+id/pktZaZej"
+        android:layout_width="191dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pktZaZejscie"
+        app:layout_constraintTop_toBottomOf="@+id/pktZaWej" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">GOT</string>
+    <string name="wyprobuj_opcje">Wypróbuj opcje:</string>
+    <string name="zaplanuj_trase">Zaplanuj trasę</string>
+    <string name="zarz_dzaj_trasami_punktowanymi_PU">Zarządzaj trasami punktowanymi</string>
 </resources>
