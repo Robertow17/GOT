@@ -45,13 +45,14 @@ public class TrasyPunktowanePlik {
 
     public void zapiszTrasyDoPliku(Context context){
         try {
-            fos = context.openFileOutput("t.tmp", Context.MODE_APPEND );
+            fos = context.openFileOutput("trasy.tmp", Context.MODE_PRIVATE );
             outputStream = new ObjectOutputStream(fos);
             for (TrasaPunktowana t: trasyZPliku) {
                 outputStream.writeObject(t);
             }
             outputStream.flush();
             outputStream.close();
+            fos.close();
         }
         catch (IOException e){
             e.printStackTrace();
@@ -60,7 +61,7 @@ public class TrasyPunktowanePlik {
 
     public void pobierzTrasyZPliku(Context context) {
         try {
-            fis = context.openFileInput("t.tmp");
+            fis = context.openFileInput("trasy.tmp");
             inputStream = new ObjectInputStream(fis);
             while (true) {
                 TrasaPunktowana trasa = ((TrasaPunktowana) inputStream.readObject());
@@ -71,6 +72,7 @@ public class TrasyPunktowanePlik {
                 }
             }
             inputStream.close();
+            fis.close();
 
         } catch (IOException e) {
             e.printStackTrace();

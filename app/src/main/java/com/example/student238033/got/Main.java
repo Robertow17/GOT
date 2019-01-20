@@ -23,7 +23,6 @@ public class Main extends AppCompatActivity {
 //        if(db.dajBazeTras().isEmpty()){
 //            db.budujTrasy();
 //        }
-//
 //        TrasyPunktowanePlik helper = new TrasyPunktowanePlik(db.dajBazeTras());
 //        helper.zapiszTrasyDoPliku(this);
 
