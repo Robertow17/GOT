@@ -36,10 +36,6 @@ public class ModyfikujTrase extends AppCompatActivity {
      */
     TrasyPunktowaneDB db;
     /**
-     * The Trasy.
-     */
-    ArrayList<TrasaPunktowana> trasy;
-    /**
      * The Grupy.
      */
     HashMap<String, GrupaGorska> grupy ;
@@ -144,6 +140,7 @@ public class ModyfikujTrase extends AppCompatActivity {
             anuluj.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    db.zapiszTrasyDoPliku(ModyfikujTrase.this);
                     startActivity(new Intent(ModyfikujTrase.this, Main.class));
                 }
             });
@@ -263,6 +260,7 @@ public class ModyfikujTrase extends AppCompatActivity {
                                 })
                                 .setNegativeButton("NIE", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
+                                        db.zapiszTrasyDoPliku(ModyfikujTrase.this);
                                         startActivity(new Intent(ModyfikujTrase.this, Main.class));
                                     }
                                 })
@@ -452,9 +450,8 @@ public class ModyfikujTrase extends AppCompatActivity {
         flag=0;
         aktualna = null;
         db = new TrasyPunktowaneDB();
-        trasy = db.dajBazeTras();
         if (index != -1) {
-            aktualna = trasy.get(index);
+            aktualna = db.dajBazeTras().get(index);
         }
         grupy = db.dajGrupyGorskie();
         podgrupy = db.dajPodgrupyGorskie();

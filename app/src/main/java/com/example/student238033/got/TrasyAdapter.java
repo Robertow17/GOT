@@ -73,14 +73,10 @@ public class TrasyAdapter extends RecyclerView.Adapter<TrasyAdapter.ViewHolder> 
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getItemId()) {
                             case R.id.modyfikuj:
-                                Intent i = new Intent(context, ModyfikujTrase.class);
-                                i.putExtra("index", position);
-                                context.startActivity(i);
+                                modyfikujTrase(position);
                                 return true;
                             case R.id.wyswietl:
-                                Intent i1 = new Intent(context, WyswietlTrase.class);
-                                i1.putExtra("index", position);
-                                context.startActivity(i1);
+                                wyswietlTrase(position);
                                 return true;
                             case R.id.usun:
                                 budujOknoAlertuUsun(position);
@@ -93,6 +89,28 @@ public class TrasyAdapter extends RecyclerView.Adapter<TrasyAdapter.ViewHolder> 
                 popup.show();
             }
         });
+    }
+
+    /**
+     * Wyswietl trase.
+     *
+     * @param position the position
+     */
+    private void wyswietlTrase(int position) {
+        Intent i1 = new Intent(context, WyswietlTrase.class);
+        i1.putExtra("index", position);
+        context.startActivity(i1);
+    }
+
+    /**
+     * Modyfikuj trase.
+     *
+     * @param position the position
+     */
+    private void modyfikujTrase(int position) {
+        Intent i = new Intent(context, ModyfikujTrase.class);
+        i.putExtra("index", position);
+        context.startActivity(i);
     }
 
     /**
@@ -156,15 +174,29 @@ public class TrasyAdapter extends RecyclerView.Adapter<TrasyAdapter.ViewHolder> 
         builder.setMessage("Czy chcesz nadal zarządzać trasami?")
                 .setPositiveButton("TAK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        context.startActivity(new Intent(context, ZarzadanieTrasami.class));
+                        zarzadzajTrasami();
                     }
                 })
                 .setNegativeButton("NIE", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        context.startActivity(new Intent(context, Main.class));
+                        zakoncz();
                     }
                 })
                 .show();
+    }
+
+    /**
+     * Zarzadzaj trasami.
+     */
+    private void zarzadzajTrasami() {
+        context.startActivity(new Intent(context, ZarzadanieTrasami.class));
+    }
+
+    /**
+     * Zakoncz.
+     */
+    private void zakoncz() {
+        context.startActivity(new Intent(context, Main.class));
     }
 
     // total number of rows

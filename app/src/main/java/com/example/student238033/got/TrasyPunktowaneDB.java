@@ -198,7 +198,6 @@ public class TrasyPunktowaneDB {
      * Pobierz trasy z pliku.
      *
      * @param context the context
-     * @param nazwaPliku the nazwaPliku
      */
     public void pobierzTrasyZPliku(Context context) {
         try {

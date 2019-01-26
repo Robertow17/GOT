@@ -131,6 +131,7 @@ public class DodajTrase extends AppCompatActivity {
         anuluj.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                bazaDanych.zapiszTrasyDoPliku(DodajTrase.this);
                 startActivity(new Intent(DodajTrase.this, Main.class));
             }
         });
@@ -273,6 +274,7 @@ public class DodajTrase extends AppCompatActivity {
                                 .setNegativeButton("NIE", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
                                         startActivity(new Intent(DodajTrase.this, Main.class));
+                                        bazaDanych.zapiszTrasyDoPliku(DodajTrase.this);
                                     }
                                 })
                                 .show();
@@ -292,7 +294,6 @@ public class DodajTrase extends AppCompatActivity {
         zaleznosciGrupIPodgrup = bazaDanych.dajZaleznosciGrupIPodgrup();
 
         niepelnosprawni = (CheckBox) findViewById(R.id.checkBoxNiepelnosprawni);
-
         miejscePoczatkowe = (EditText) findViewById(R.id.miejscePoczatkowe);
         miejsceKoncowe = (EditText) findViewById(R.id.miejsceKoncowe);
         punktyWejscie = (EditText) findViewById(R.id.pktZaWej);

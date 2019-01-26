@@ -104,7 +104,7 @@ public class WyswietlTrase extends AppCompatActivity {
         anuluj.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(WyswietlTrase.this, Main.class));
+                anuluj();
             }
         });
 
@@ -114,6 +114,13 @@ public class WyswietlTrase extends AppCompatActivity {
                 budujOknoAlertuKontynuacja();
             }
             });
+    }
+
+
+    private void anuluj()
+    {
+        bazaDanych.zapiszTrasyDoPliku(WyswietlTrase.this);
+        startActivity(new Intent(WyswietlTrase.this, Main.class));
     }
 
     /**
@@ -168,6 +175,7 @@ public class WyswietlTrase extends AppCompatActivity {
                 })
                 .setNegativeButton("NIE", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
+                        bazaDanych.zapiszTrasyDoPliku(WyswietlTrase.this);
                         startActivity(new Intent(WyswietlTrase.this, Main.class));
                     }
                 })

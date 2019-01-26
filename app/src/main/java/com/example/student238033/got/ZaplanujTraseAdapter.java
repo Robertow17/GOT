@@ -85,25 +85,42 @@ public class ZaplanujTraseAdapter extends RecyclerView.Adapter<ZaplanujTraseAdap
                             ((ZaplanujTrase) context).usunTrase();
                         }
                     }
-                    trasy.setWybrana(pozycja);
-                    trasy.setWybranyPunkt(holder.lista.getSelectedItem().toString());
+                    ustawWybrane(pozycja);
                     if (position == 0) {
                         if (mData.size() < 2) {
                             ((ZaplanujTrase) context).dodajPunkt();
                         }
                     }
                     else {
-                        String punktStartu = mData.get(position - 1).getWybranyPunkt();
-                        String punktMety = holder.lista.getSelectedItem().toString();
-                        for (TrasaPunktowana t : trasy.getTrasy()) {
-                            if ((Objects.equals(t.getMiejscePoczatkowe(), punktStartu) && Objects.equals(t.getMiejsceKoncowe(), punktMety)) || ((Objects.equals(t.getMiejsceKoncowe(), punktStartu) && Objects.equals(t.getMiejscePoczatkowe(), punktMety)))) {
-                                ((ZaplanujTrase) context).dodajTrase(t);
-                            }
-                        }
+                        znajdzTrase();
                     }
 
                 }
             }
+
+            /**
+             * Znajdz trase.
+             */
+            private void znajdzTrase() {
+                String punktStartu = mData.get(position - 1).getWybranyPunkt();
+                String punktMety = holder.lista.getSelectedItem().toString();
+                for (TrasaPunktowana t : trasy.getTrasy()) {
+                    if ((Objects.equals(t.getMiejscePoczatkowe(), punktStartu) && Objects.equals(t.getMiejsceKoncowe(), punktMety)) || ((Objects.equals(t.getMiejsceKoncowe(), punktStartu) && Objects.equals(t.getMiejscePoczatkowe(), punktMety)))) {
+                        ((ZaplanujTrase) context).dodajTrase(t);
+                    }
+                }
+            }
+
+            /**
+             * Ustaw wybrane.
+             *
+             * @param pozycja the pozycja
+             */
+            private void ustawWybrane(int pozycja) {
+                trasy.setWybrana(pozycja);
+                trasy.setWybranyPunkt(holder.lista.getSelectedItem().toString());
+            }
+
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }

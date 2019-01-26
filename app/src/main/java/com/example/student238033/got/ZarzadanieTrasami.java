@@ -51,11 +51,7 @@ public class ZarzadanieTrasami extends AppCompatActivity implements TrasyAdapter
         if(db.dajBazeTras().isEmpty()){
             budujOknoAlertuPustaBaza();
         }
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new TrasyAdapter(this, db.dajBazeTras());
-        adapter.setClickListener(this);
-        recyclerView.setAdapter(adapter);
+        ustawWidok();
 
 
         dodaj.setOnClickListener(new View.OnClickListener() {
@@ -68,9 +64,27 @@ public class ZarzadanieTrasami extends AppCompatActivity implements TrasyAdapter
         anuluj.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ZarzadanieTrasami.this, Main.class));
+                anuluj();
             }
         });
+    }
+
+    /**
+     * Ustaw widok.
+     */
+    private void ustawWidok() {
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new TrasyAdapter(this, db.dajBazeTras());
+        adapter.setClickListener(this);
+        recyclerView.setAdapter(adapter);
+    }
+
+    /**
+     * Anuluj.
+     */
+    private void anuluj() {
+        db.zapiszTrasyDoPliku(ZarzadanieTrasami.this);
+        startActivity(new Intent(ZarzadanieTrasami.this, Main.class));
     }
 
     /**

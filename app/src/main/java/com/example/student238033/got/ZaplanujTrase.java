@@ -107,7 +107,7 @@ public class ZaplanujTrase extends AppCompatActivity implements ZaplanujTraseAda
         anuluj.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ZaplanujTrase.this, Main.class));
+                anuluj();
             }
         });
 
@@ -136,8 +136,7 @@ public class ZaplanujTrase extends AppCompatActivity implements ZaplanujTraseAda
                     ((TextView) view).setTextColor(ContextCompat.getColor(ZaplanujTrase.this, android.R.color.black));
                     wybierzTrasyZPodgrupy();
                     listaPodgrupGorskich.setEnabled(false);
-                    ZaplanujTraseRzad pierwszyPunkt =new ZaplanujTraseRzad(trasyWPodgrupie);
-                    punktyNaTrasie.add(pierwszyPunkt);
+                    stworzPierwszyPunkt();
                     stworzWidokTrasy(punktyNaTrasie);
                     zmienWidok();
                 }
@@ -148,6 +147,21 @@ public class ZaplanujTrase extends AppCompatActivity implements ZaplanujTraseAda
         });
 
 
+    }
+
+    /**
+     * Anuluj.
+     */
+    private void anuluj() {
+        startActivity(new Intent(ZaplanujTrase.this, Main.class));
+    }
+
+    /**
+     * Stworz pierwszy punkt.
+     */
+    private void stworzPierwszyPunkt() {
+        ZaplanujTraseRzad pierwszyPunkt =new ZaplanujTraseRzad(trasyWPodgrupie);
+        punktyNaTrasie.add(pierwszyPunkt);
     }
 
     /**
@@ -264,13 +278,22 @@ public class ZaplanujTrase extends AppCompatActivity implements ZaplanujTraseAda
                     mozliweTrasy.add(t);
                 }
             }
-            ZaplanujTraseRzad nowaLista = new ZaplanujTraseRzad(mozliweTrasy);
-            punktyNaTrasie.add(nowaLista);
-            adapterWidoku.notifyDataSetChanged();
+            zaktualizujWidokTrasy(mozliweTrasy);
         }
         else {
             budujOknoAlertuBlad();
         }
+    }
+
+    /**
+     * Zaktualizuj widok trasy.
+     *
+     * @param mozliweTrasy the mozliweTrasy
+     */
+    private void zaktualizujWidokTrasy(ArrayList<TrasaPunktowana> mozliweTrasy) {
+        ZaplanujTraseRzad nowaLista = new ZaplanujTraseRzad(mozliweTrasy);
+        punktyNaTrasie.add(nowaLista);
+        adapterWidoku.notifyDataSetChanged();
     }
 
     /**

@@ -37,16 +37,30 @@ public class Main extends AppCompatActivity {
         zaplanujTrase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Main.this, ZaplanujTrase.class));
+                zaplanujTrase();
             }
         });
         zarzadzajTrasami = (Button)findViewById(R.id.przyciskZarzadzajTrasamiPunktowanymi);
         zarzadzajTrasami.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Main.this, ZarzadanieTrasami.class));
+                zarzadzajTrasami();
             }
         });
+    }
+
+    /**
+     * Zarzadzaj trasami.
+     */
+    private void zarzadzajTrasami() {
+        startActivity(new Intent(Main.this, ZarzadanieTrasami.class));
+    }
+
+    /**
+     * Zaplanuj trase.
+     */
+    private void zaplanujTrase() {
+        startActivity(new Intent(Main.this, ZaplanujTrase.class));
     }
 
     /**
