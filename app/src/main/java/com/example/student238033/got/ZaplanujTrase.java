@@ -20,27 +20,83 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Objects;
 
+/**
+ * The type Zaplanuj trase.
+ */
 public class ZaplanujTrase extends AppCompatActivity implements ZaplanujTraseAdapter.ItemClickListener{
 
+    /**
+     * The Baza danych.
+     */
     TrasyPunktowaneDB bazaDanych;
+    /**
+     * The Baza tras.
+     */
     ArrayList<TrasaPunktowana> bazaTras;
+    /**
+     * The Podgrupy.
+     */
     HashMap<String, PodgrupaGorska> podgrupy;
+    /**
+     * The Punkty na trasie.
+     */
     ArrayList<ZaplanujTraseRzad> punktyNaTrasie;
+    /**
+     * The Trasy w podgrupie.
+     */
     ArrayList<TrasaPunktowana> trasyWPodgrupie;
+    /**
+     * The Suma punktow.
+     */
     int sumaPunktow;
+    /**
+     * The Zaplanowana trasa.
+     */
     ArrayList<TrasaPunktowana> zaplanowanaTrasa;
 
+    /**
+     * The Przegladaj trasy button.
+     */
     Button przegladajTrasyButton;
+    /**
+     * The Dodaj punkt button.
+     */
     Button dodajPunktButton;
+    /**
+     * The Anuluj.
+     */
     Button anuluj;
+    /**
+     * The Zapisz.
+     */
     Button zapisz;
+    /**
+     * The Punkty tekst.
+     */
     TextView punktyTekst;
+    /**
+     * The Punkty.
+     */
     TextView punkty;
+    /**
+     * The Lista podgrup gorskich.
+     */
     Spinner listaPodgrupGorskich;
+    /**
+     * The Widok trasy.
+     */
     RecyclerView widokTrasy;
+    /**
+     * The Adapter widoku.
+     */
     ZaplanujTraseAdapter adapterWidoku;
-    
 
+
+    /**
+     * On create.
+     *
+     * @param savedInstanceState     the savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,6 +150,9 @@ public class ZaplanujTrase extends AppCompatActivity implements ZaplanujTraseAda
 
     }
 
+    /**
+     * Stworz adapter dla listy podgrup gorskich ArrayAdapter<String>.
+     */
     @NonNull
     private ArrayAdapter<String> stworzAdapterDlaListyPodgrupGorskich() {
         String[] podgrupyGorskie = podgrupy.keySet().toArray(new String[podgrupy.size()]);
@@ -103,6 +162,9 @@ public class ZaplanujTrase extends AppCompatActivity implements ZaplanujTraseAda
         return new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, helper);
     }
 
+    /**
+     * Zmien widok.
+     */
     private void zmienWidok() {
         przegladajTrasyButton.setVisibility(View.INVISIBLE);
         punktyTekst.setVisibility(View.VISIBLE);
@@ -110,6 +172,9 @@ public class ZaplanujTrase extends AppCompatActivity implements ZaplanujTraseAda
         dodajPunktButton.setVisibility(View.VISIBLE);
     }
 
+    /**
+     * Wybierz trasy z podgrupy.
+     */
     private void wybierzTrasyZPodgrupy() {
         String podgrupa = listaPodgrupGorskich.getSelectedItem().toString();
         for (TrasaPunktowana t: bazaTras ) {
@@ -119,6 +184,11 @@ public class ZaplanujTrase extends AppCompatActivity implements ZaplanujTraseAda
         }
     }
 
+    /**
+     * Stworz widok trasy.
+     *
+     * @param rzedyWidoku the rzedyWidoku
+     */
     private void stworzWidokTrasy(ArrayList<ZaplanujTraseRzad> rzedyWidoku) {
         widokTrasy.setLayoutManager(new LinearLayoutManager(ZaplanujTrase.this));
         adapterWidoku = new ZaplanujTraseAdapter(ZaplanujTrase.this, rzedyWidoku);
@@ -126,6 +196,9 @@ public class ZaplanujTrase extends AppCompatActivity implements ZaplanujTraseAda
         widokTrasy.setAdapter(adapterWidoku);
     }
 
+    /**
+     * Buduj okno alertu zapisz.
+     */
     private void budujOknoAlertuZapisz() {
         AlertDialog.Builder builder;
         builder = new AlertDialog.Builder(ZaplanujTrase.this);
@@ -151,6 +224,9 @@ public class ZaplanujTrase extends AppCompatActivity implements ZaplanujTraseAda
                 .show();
     }
 
+    /**
+     * Zainicjuj atrybuty.
+     */
     private void zainicjujAtrybuty() {
         bazaDanych = new TrasyPunktowaneDB();
         bazaTras = bazaDanych.dajBazeTras();
@@ -175,6 +251,9 @@ public class ZaplanujTrase extends AppCompatActivity implements ZaplanujTraseAda
 
     }
 
+    /**
+     * Dodaj punkt.
+     */
     public void dodajPunkt(){
         ZaplanujTraseRzad ostatnia = punktyNaTrasie.get(punktyNaTrasie.size()-1);
         String ostatniPunkt = ostatnia.getWybranyPunkt();
@@ -194,6 +273,9 @@ public class ZaplanujTrase extends AppCompatActivity implements ZaplanujTraseAda
         }
     }
 
+    /**
+     * Buduj okno alertu blad.
+     */
     private void budujOknoAlertuBlad() {
         AlertDialog.Builder builder;
         builder = new AlertDialog.Builder(ZaplanujTrase.this);
@@ -206,10 +288,20 @@ public class ZaplanujTrase extends AppCompatActivity implements ZaplanujTraseAda
                 .show();
     }
 
+    /**
+     * Aktualizuj sume punktow.
+     *
+     * @param pkt the pkt
+     */
     public void aktualizujSumePunktow(int pkt){
         punkty.setText(Integer.toString(pkt));
     }
 
+    /**
+     * Dodaj trase.
+     *
+     * @param t the t
+     */
     public void dodajTrase(TrasaPunktowana t){
         zaplanowanaTrasa.add(t);
         if(zaplanowanaTrasa.size()==1){
@@ -228,6 +320,9 @@ public class ZaplanujTrase extends AppCompatActivity implements ZaplanujTraseAda
         aktualizujSumePunktow(sumaPunktow);
     }
 
+    /**
+     * Usun trase.
+     */
     public void usunTrase(){
         TrasaPunktowana usuwana = zaplanowanaTrasa.get(zaplanowanaTrasa.size()-1);
         String nieaktualnyPunkt = punktyNaTrasie.get(punktyNaTrasie.size()-1).getWybranyPunkt();

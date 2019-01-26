@@ -10,14 +10,37 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
+/**
+ * The type Zarzadanie trasami.
+ */
 public class ZarzadanieTrasami extends AppCompatActivity implements TrasyAdapter.ItemClickListener{
 
+    /**
+     * The Adapter.
+     */
     TrasyAdapter adapter;
+    /**
+     * The Dodaj.
+     */
     Button dodaj;
+    /**
+     * The Anuluj.
+     */
     Button anuluj;
+    /**
+     * The Db.
+     */
     TrasyPunktowaneDB db;
+    /**
+     * The Recycler view.
+     */
     RecyclerView recyclerView;
 
+    /**
+     * On create.
+     *
+     * @param savedInstanceState     the savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +73,9 @@ public class ZarzadanieTrasami extends AppCompatActivity implements TrasyAdapter
         });
     }
 
+    /**
+     * Zainicjuj atrybuty.
+     */
     private void zainicjujAtrybuty() {
         anuluj = (Button)findViewById(R.id.przyciskZarzadzajTrasamiPunktowanymi);
         recyclerView = findViewById(R.id.ListaTras);
@@ -58,6 +84,9 @@ public class ZarzadanieTrasami extends AppCompatActivity implements TrasyAdapter
         db = new TrasyPunktowaneDB();
     }
 
+    /**
+     * Buduj okno alertu pusta baza.
+     */
     private void budujOknoAlertuPustaBaza() {
         AlertDialog.Builder builder;
         builder = new AlertDialog.Builder(ZarzadanieTrasami.this);
@@ -70,7 +99,6 @@ public class ZarzadanieTrasami extends AppCompatActivity implements TrasyAdapter
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .show();
     }
-
 
     @Override
     public void onItemClick(View view, int position) {

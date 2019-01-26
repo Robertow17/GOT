@@ -3,6 +3,7 @@ package com.example.student238033.got;
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
+import android.widget.EditText;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,7 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() throws Exception {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
-
         assertEquals("com.example.student238033.got", appContext.getPackageName());
     }
 }

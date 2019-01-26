@@ -7,39 +7,31 @@ import android.view.View;
 import android.widget.Button;
 
 
+/**
+ * The type Main.
+ */
 public class Main extends AppCompatActivity {
 
+    /**
+     * The Zaplanuj trase.
+     */
     Button zaplanujTrase;
+    /**
+     * The Zarzadzaj trasami.
+     */
     Button zarzadzajTrasami;
-    Button bt3;
-    Button bt4;
 
+    /**
+     * On create.
+     *
+     * @param savedInstanceState     the savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TrasyPunktowaneDB db = new TrasyPunktowaneDB();
-//        if(db.dajBazeTras().isEmpty()){
-//            db.budujTrasy();
-//        }
-//        TrasyPunktowanePlik helper = new TrasyPunktowanePlik(db.dajBazeTras());
-//        helper.zapiszTrasyDoPliku(this);
-
-        if(db.dajBazeTras().isEmpty()){
-            TrasyPunktowanePlik helper = new TrasyPunktowanePlik();
-            helper.pobierzTrasyZPliku(this);
-            db.dodajBazeTras(helper.getTrasyZPliku());
-        }
-        if(db.dajGrupyGorskie().isEmpty()){
-            db.budujGrupyGorskie();
-        }
-        if(db.dajPodgrupyGorskie().isEmpty()) {
-            db.budujPodrupyGorskie();
-        }
-        if(db.dajStopnieTrudnosci().isEmpty()){
-            db.budujStopnieTrudnosci();
-        }
+        stworzBazeDanych();
 
         zaplanujTrase = (Button)findViewById(R.id.przyciskZaplanujTrase);
         zaplanujTrase.setOnClickListener(new View.OnClickListener() {
@@ -55,10 +47,32 @@ public class Main extends AppCompatActivity {
                 startActivity(new Intent(Main.this, ZarzadanieTrasami.class));
             }
         });
-        //bt3 = (Button)findViewById(R.id.PrzyciskZarzadzajPowiadomieniami);
-       // bt4 = (Button)findViewById(R.id.button4);
     }
 
+    /**
+     * Stworz baze danych.
+     */
+    private void stworzBazeDanych() {
+        TrasyPunktowaneDB db = new TrasyPunktowaneDB();
+//        if(db.dajBazeTras().isEmpty()){
+//            db.budujTrasy();
+//            db.zapiszTrasyDoPliku(this);
+//        }
 
-
+        if(db.dajBazeTras().isEmpty()){
+            db.pobierzTrasyZPliku(this);
+        }
+        if(db.dajGrupyGorskie().isEmpty()){
+            db.budujGrupyGorskie();
+        }
+        if(db.dajPodgrupyGorskie().isEmpty()) {
+            db.budujPodrupyGorskie();
+        }
+        if(db.dajStopnieTrudnosci().isEmpty()){
+            db.budujStopnieTrudnosci();
+        }
+        if(db.dajZaleznosciGrupIPodgrup().isEmpty()){
+            db.budujZaleznosciGrupIPodgrup();
+        }
+    }
 }
