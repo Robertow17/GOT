@@ -61,7 +61,7 @@ public class ZarzadanieTrasami extends AppCompatActivity implements TrasyAdapter
         dodaj.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ZarzadanieTrasami.this, DodajTrase.class));
+                DodajTrase();
             }
         });
 
@@ -71,6 +71,13 @@ public class ZarzadanieTrasami extends AppCompatActivity implements TrasyAdapter
                 startActivity(new Intent(ZarzadanieTrasami.this, Main.class));
             }
         });
+    }
+
+    /**
+     * Dodaj trase.
+     */
+    private void DodajTrase() {
+        startActivity(new Intent(ZarzadanieTrasami.this, DodajTrase.class));
     }
 
     /**
@@ -93,7 +100,7 @@ public class ZarzadanieTrasami extends AppCompatActivity implements TrasyAdapter
         builder.setMessage("Baza tras punktowanych jest pusta. Dodaj trasę.")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        startActivity(new Intent(ZarzadanieTrasami.this, DodajTrase.class));
+                        DodajTrase();
                     }
                 })
                 .setIcon(android.R.drawable.ic_dialog_alert)
