@@ -31,28 +31,39 @@ import static org.hamcrest.CoreMatchers.is;
 /**
  * Przygotowano 7 testów funkcjonalnych.
  * Przypadki testowe:
- • Ustawianie podgrupy górskiej, w której będzie planowana trasa.
- • Pokazanie, że po wybraniu podgrupy górskiej nie można jej już zmienić.
- • Wątek główny: wybranie podgrupy górskiej i oraz dwóch punktów na trasie, oraz zapisanie trasy.
- • Po zaplanowaniu trasy, brak chęci do planowania kolejnej.
- • Planowanie trasy z 4 punktami na trasie.
- • Anulowanie planowania trasy.
- • Wypróbowanie możliwości zmiany ostatniego punktu na trasie.
+ * • Ustawianie podgrupy górskiej, w której będzie planowana trasa.
+ * • Pokazanie, że po wybraniu podgrupy górskiej nie można jej już zmienić.
+ * • Wątek główny: wybranie podgrupy górskiej i oraz dwóch punktów na trasie, oraz zapisanie trasy.
+ * • Po zaplanowaniu trasy, brak chęci do planowania kolejnej.
+ * • Planowanie trasy z 4 punktami na trasie.
+ * • Anulowanie planowania trasy.
+ * • Wypróbowanie możliwości zmiany ostatniego punktu na trasie.
  */
 @RunWith(AndroidJUnit4.class)
 public class ZaplanujTraseTest {
 
+    /**
+     * The Activity test rule.
+     */
     @Rule
     public ActivityTestRule<ZaplanujTrase> activityTestRule =
             new ActivityTestRule<>(ZaplanujTrase.class);
 
 
+    /**
+     * Sets up.
+     *
+     * @throws Exception the exception
+     */
     @Before
     public void setUp() throws Exception{
         Intents.init();
     }
 
 
+    /**
+     * Test ustaw podgrupe gorska.
+     */
     @Test
     public void testUstawPodgrupeGorska()
     {
@@ -62,6 +73,9 @@ public class ZaplanujTraseTest {
         onView(withId(R.id.listaPodgrupGorskich)).check(matches(withSpinnerText(containsString(text))));
     }
 
+    /**
+     * Test brak mozliwosci zmiany wybranej podgrupy gorskiej.
+     */
     @Test
     public void testBrakMozliwosciZmianyWybranejPodgrupyGorskiej()
     {
@@ -74,6 +88,9 @@ public class ZaplanujTraseTest {
 
     }
 
+    /**
+     * Test watek głowny.
+     */
     @Test
     public void testWatekGłowny()
     {
@@ -100,6 +117,9 @@ public class ZaplanujTraseTest {
 
     }
 
+    /**
+     * Test brak checi do planowania kolejenej trasy.
+     */
     @Test
     public void testBrakCheciDoPlanowaniaKolejenejTrasy()
     {
@@ -126,6 +146,9 @@ public class ZaplanujTraseTest {
 
     }
 
+    /**
+     * Test cztery punkty na trasie.
+     */
     @Test
     public void testCzteryPunktyNaTrasie()
     {
@@ -155,6 +178,9 @@ public class ZaplanujTraseTest {
 
     }
 
+    /**
+     * Test anulowanie.
+     */
     @Test
     public void testAnulowanie()
     {
@@ -173,6 +199,9 @@ public class ZaplanujTraseTest {
 
     }
 
+    /**
+     * Test zmiana ostatniego punktu.
+     */
     @Test
     public void testZmianaOstatniegoPunktu()
     {
@@ -201,6 +230,11 @@ public class ZaplanujTraseTest {
 
     }
 
+    /**
+     * Tear down.
+     *
+     * @throws Exception the exception
+     */
     @After
     public void tearDown() throws Exception
     {
