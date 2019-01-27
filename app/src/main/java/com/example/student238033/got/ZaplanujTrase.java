@@ -135,6 +135,9 @@ public class ZaplanujTrase extends AppCompatActivity implements ZaplanujTraseAda
                 } else {
                     ((TextView) view).setTextColor(ContextCompat.getColor(ZaplanujTrase.this, android.R.color.black));
                     wybierzTrasyZPodgrupy();
+                    if(trasyWPodgrupie.size()==0){
+                        budujOknoAlertuBrakTras();
+                    }
                     listaPodgrupGorskich.setEnabled(false);
                     stworzPierwszyPunkt();
                     stworzWidokTrasy(punktyNaTrasie);
@@ -239,10 +242,33 @@ public class ZaplanujTrase extends AppCompatActivity implements ZaplanujTraseAda
     }
 
     /**
+     * Buduj okno alertu brak tras.
+     */
+    private void budujOknoAlertuBrakTras() {
+        AlertDialog.Builder builder;
+        builder = new AlertDialog.Builder(ZaplanujTrase.this);
+        builder.setTitle("Brak tras!")
+                .setMessage("Przepraszamy, ale obecnie w bazie nie znajduje się żadna trasa w wybranej podgrupie górskiej.")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        startActivity(new Intent(ZaplanujTrase.this, ZaplanujTrase.class));
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
+    }
+
+    /**
      * Zainicjuj atrybuty.
      */
     private void zainicjujAtrybuty() {
         bazaDanych = new TrasyPunktowaneDB();
+
+        if(bazaDanych.dajBazeTras().size()==0) {
+            bazaDanych.pobierzTrasyZPliku(this);
+            bazaDanych.budujPodrupyGorskie();
+        }
+
         bazaTras = bazaDanych.dajBazeTras();
         podgrupy = bazaDanych.dajPodgrupyGorskie();
         punktyNaTrasie = new ArrayList<ZaplanujTraseRzad>();
@@ -255,8 +281,8 @@ public class ZaplanujTrase extends AppCompatActivity implements ZaplanujTraseAda
         punktyTekst = findViewById(R.id.punktyTekst);
         punkty = findViewById(R.id.punkty);
         listaPodgrupGorskich = findViewById(R.id.listaPodgrupGorskich);
-        anuluj = findViewById(R.id.przyciskZarzadzajTrasamiPunktowanymi);
-        zapisz = findViewById((R.id.PrzyciskZarzadzajPowiadomieniami));
+        anuluj = findViewById(R.id.anuluj);
+        zapisz = findViewById((R.id.zapisz));
         widokTrasy = findViewById(R.id.punktyNaTrasie);
     }
 

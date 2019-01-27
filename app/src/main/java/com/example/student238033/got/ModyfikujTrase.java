@@ -469,7 +469,7 @@ public class ModyfikujTrase extends AppCompatActivity {
         listaRozwijanaPodgrupy = findViewById(R.id.podgrupaGorska);
         listaRozwijanaStopnie = findViewById(R.id.stopienTrudnosci);
         dodaj = (Button) findViewById(R.id.przyciskZaplanujTrase);
-        anuluj = (Button) findViewById(R.id.przyciskZarzadzajTrasamiPunktowanymi);
+        anuluj = (Button) findViewById(R.id.anuluj);
     }
 
 }

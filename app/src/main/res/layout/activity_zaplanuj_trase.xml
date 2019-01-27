@@ -71,13 +71,13 @@
         android:textAppearance="@style/TextAppearance.AppCompat"
         android:textColor="#007AFF"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/przyciskZarzadzajTrasamiPunktowanymi"
+        app:layout_constraintBottom_toTopOf="@+id/anuluj"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.421"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/przyciskZarzadzajTrasamiPunktowanymi"
+        android:id="@+id/anuluj"
         android:layout_width="175dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
@@ -92,7 +92,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/PrzyciskZarzadzajPowiadomieniami"
+        android:id="@+id/zapisz"
         android:layout_width="175dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
@@ -119,7 +119,7 @@
         android:textColor="@android:color/black"
         android:textSize="14sp"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/PrzyciskZarzadzajPowiadomieniami"
+        app:layout_constraintBottom_toTopOf="@+id/zapisz"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -131,7 +131,7 @@
         android:text="Suma punktów:"
         android:textSize="16sp"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/przyciskZarzadzajTrasamiPunktowanymi"
+        app:layout_constraintBottom_toTopOf="@+id/anuluj"
         app:layout_constraintEnd_toStartOf="@+id/punkty" />
 
     <TextView
@@ -143,7 +143,7 @@
         android:text="0"
         android:textSize="16sp"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/przyciskZarzadzajTrasamiPunktowanymi"
+        app:layout_constraintBottom_toTopOf="@+id/anuluj"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <android.support.v7.widget.RecyclerView
@@ -154,7 +154,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/przyciskZarzadzajTrasamiPunktowanymi"
+        app:layout_constraintBottom_toTopOf="@+id/anuluj"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/zaplanujTraseTekst" />

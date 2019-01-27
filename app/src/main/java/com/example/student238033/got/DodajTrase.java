@@ -299,7 +299,7 @@ public class DodajTrase extends AppCompatActivity {
         punktyWejscie = (EditText) findViewById(R.id.pktZaWej);
         punktyZejscie = (EditText) findViewById(R.id.pktZaZej);
         dodaj = (Button)findViewById(R.id.przyciskZaplanujTrase);
-        anuluj = (Button)findViewById(R.id.przyciskZarzadzajTrasamiPunktowanymi);
+        anuluj = (Button)findViewById(R.id.anuluj);
 
         listaRozwijanaGrupy = findViewById(R.id.grupaGorska);
         listaRozwijanaPodgrupy = findViewById(R.id.podgrupaGorska);

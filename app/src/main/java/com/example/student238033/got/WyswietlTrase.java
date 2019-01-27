@@ -207,7 +207,7 @@ public class WyswietlTrase extends AppCompatActivity {
         grupa = (TextView) findViewById(R.id.grupaGorska);
         podgrupa = (TextView) findViewById(R.id.podgrupaGorska);
         stopien = (TextView) findViewById(R.id.stopienTrudnosci);
-        anuluj = (Button) findViewById(R.id.przyciskZarzadzajTrasamiPunktowanymi);
+        anuluj = (Button) findViewById(R.id.anuluj);
         ok = (Button) findViewById((R.id.przyciskZaplanujTrase));
 
     }

@@ -40,7 +40,7 @@ public class Main extends AppCompatActivity {
                 zaplanujTrase();
             }
         });
-        zarzadzajTrasami = (Button)findViewById(R.id.przyciskZarzadzajTrasamiPunktowanymi);
+        zarzadzajTrasami = (Button)findViewById(R.id.anuluj);
         zarzadzajTrasami.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

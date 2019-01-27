@@ -98,7 +98,7 @@ public class ZarzadanieTrasami extends AppCompatActivity implements TrasyAdapter
      * Zainicjuj atrybuty.
      */
     private void zainicjujAtrybuty() {
-        anuluj = (Button)findViewById(R.id.przyciskZarzadzajTrasamiPunktowanymi);
+        anuluj = (Button)findViewById(R.id.anuluj);
         recyclerView = findViewById(R.id.ListaTras);
         dodaj = (Button)findViewById(R.id.przyciskZaplanujTrase);
 
